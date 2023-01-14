@@ -21,11 +21,17 @@ public class RestService {
 
 
     //--------Rest Report Section---------
-    public Report handleRestReport(long reportId) throws RuntimeException{
+    public Report handleRestReport(long reportId) {
         log.info("Inside rest service -> report ");
-        Report report = restTemplate.getForObject("http://localhost:8081/report/"+reportId,Report.class);
+        try {
+            Report report = restTemplate.getForObject("http://REPORTS/report/"+reportId,Report.class);
+            return report;
+        }catch (Exception e)
+        {
+            return null;
 
-        return report;
+        }
+
     }
 
 

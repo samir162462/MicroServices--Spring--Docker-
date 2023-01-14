@@ -21,6 +21,11 @@ public class UserService {
 
 
     public User getUser(Long userId) {
+        try {
+            Thread.sleep(6000);
+        }catch (Exception exception){
+
+        }
       return  userRepository.findById(userId).get();
     }
 
